@@ -18,18 +18,16 @@
     function keyWordsearch(){
         gapi.client.setApiKey('WtoLk3P31QDZwHYzFWI1kzXI');
         gapi.client.load('youtube', 'v3', function() {
-            makeRequest();
-        });
-    }
-    function makeRequest() {
-        var q = $('#query').val();
-        var request = gapi.client.youtube.search.list({
-            q: q,
-            part: 'snippet'
-        });
-        request.execute(function(response) {
-            var str = JSON.stringify(response.result);
-            $('#search-container').html('<pre>' + str + '</pre>');
+
+            var q = $('#query').val();
+            var request = gapi.client.youtube.search.list({
+                q: q,
+                part: 'snippet'
+            });
+            request.execute(function(response) {
+                var str = JSON.stringify(response.result);
+                $('#search-container').html('<pre>' + str + '</pre>');
+            });
         });
     }
 </script>
