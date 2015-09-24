@@ -48,7 +48,7 @@
         gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
     }
     function handleAuthResult(authResult) {
-        console.log((authResult)
+        console.log(authResult)
         var authorizeButton = document.getElementById('authorize-button');
         if (authResult && !authResult.error) {
             authorizeButton.style.visibility = 'hidden';
