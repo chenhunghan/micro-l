@@ -16,7 +16,7 @@ function onClientLoad() {
 function onYouTubeApiLoad() {
     // This API key is intended for use only in this lesson.
     // See https://goo.gl/PdPA1 to get a key for your own applications.
-    gapi.client.setApiKey('WtoLk3P31QDZwHYzFWI1kzXI');
+    gapi.client.setApiKey('dYymH_d7PcH91ZBfvPQxl6HH');
 
     search();
 }
@@ -24,7 +24,8 @@ function onYouTubeApiLoad() {
 function search() {
     // Use the JavaScript client library to create a search.list() API call.
     var request = gapi.client.youtube.search.list({
-        part: 'snippet',
+        q: 'hello world',
+        part: 'snippet'
 
     });
 
