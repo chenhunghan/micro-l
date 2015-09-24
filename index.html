@@ -18,7 +18,7 @@
     function keyWordsearch(){
         gapi.client.setApiKey('WtoLk3P31QDZwHYzFWI1kzXI');
         gapi.client.load('youtube', 'v3', function() {
-
+            console.log(gapi)
             var q = $('#query').val();
             var request = gapi.client.youtube.search.list({
                 q: q,
