@@ -4,7 +4,7 @@
 // you need to register your own client ID.
 var OAUTH2_CLIENT_ID = '199115458912-mo59urnk9nkec5m4dav9b0ol96hnt34s.apps.googleusercontent.com';
 var OAUTH2_SCOPES = [
-    'http://chenhunghan.github.io'
+    'https://www.googleapis.com/auth/youtube'
 ];
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
@@ -12,6 +12,7 @@ googleApiClientReady = function() {
     gapi.auth.init(function() {
         window.setTimeout(checkAuth, 1);
     });
+
 }
 
 // Attempt the immediate OAuth 2.0 client flow as soon as the page loads.
@@ -29,6 +30,7 @@ function checkAuth() {
 
 // Handle the result of a gapi.auth.authorize() call.
 function handleAuthResult(authResult) {
+    console.log(authResult)
     if (authResult && !authResult.error) {
         // Authorization was successful. Hide authorization prompts and show
         // content that should be visible after authorization succeeds.
@@ -54,5 +56,6 @@ function handleAuthResult(authResult) {
 function loadAPIClientInterfaces() {
     gapi.client.load('youtube', 'v3', function() {
         handleAPILoaded();
+        console.log('handleAPILoaded()')
     });
 }
