@@ -8,7 +8,13 @@
 <body ng-controller="MainCtrl as main">
 <div ng-repeat="i in items">
     <h1>{{i.snippet.title}}</h1>
-    <img ng-src="{{i.snippet.thumbnails.high.url}}"/>
+    <img ng-src="{{i.snippet.thumbnails.high.url}}" ng-click="watching = true">
+    <iframe
+            ng-if="watching=true"
+            ng-click="watching = false"
+            ng-src="https://www.youtube.com/embed/{{i.id.videoId}}"
+            width="100%"
+            frameborder="0" ></iframe>
     <p>{{i.snippet.description}}</p>
 </div>
 <pre id="response"></pre>

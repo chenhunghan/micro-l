@@ -10,7 +10,7 @@ function onClientLoad() {
             videoDuration: 'short',
             videoEmbeddable: true,
             relevanceLanguage: 'eng',
-            maxResults: 10
+            maxResults: 100
             //https://developers.google.com/youtube/v3/docs/search/list#request-body
         });
         request.execute(function(response) {
