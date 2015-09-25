@@ -300,6 +300,7 @@ function onClientLoad() {
                     ]
                 if (response.items) {
                     $scope.items = response.items
+                    console.log(response)
                 }
                 $scope.getIframeSrc = function (videoId) {
                     return 'https://www.youtube.com/embed/' + videoId;
