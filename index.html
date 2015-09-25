@@ -5,7 +5,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <meta name="viewport" content="initial-scale=1" />
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
+<div ng-repeat="i in items">
+    <h1>{{i.snippet.title}}</h1>
+    <img ng-src="{{i.snippet.thumbnails.high.url}}"/>
+    <p>{{i.snippet.description}}</p>
+</div>
 <pre id="response"></pre>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js" type="text/javascript"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.js" type="text/javascript"></script>
@@ -13,12 +18,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <!--<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>-->
-<!-- Anglar App Script -->
-<script src="js/app.js"></script>
-<script src="search.js" type="text/javascript"></script>
+<script src="app.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
-<script>
-    angular.module('app', ['ngAnimate', 'ui.bootstrap']);
-</script>
 </body>
 </html>
