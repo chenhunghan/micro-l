@@ -17,9 +17,17 @@ function onClientLoad() {
 
             angular.module('app', ['ngAnimate', 'ui.bootstrap'])
             angular.module('app').controller('MainCtrl', MainCtrl)
-
+            angular.module('app')
+                .filter('youtubeEmbedUrl', function ($sce) {
+                    return function(videoId) {
+                        return $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + videoId);
+                    };
+                });
             function MainCtrl($scope) {
                 $scope.items = response.items
+                $scope.getIframeSrc = function (videoId) {
+                    return 'https://www.youtube.com/embed/' + videoId;
+                };
             };
 
             angular.element(document).ready(function() {

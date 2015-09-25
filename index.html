@@ -12,7 +12,7 @@
     <iframe
             ng-if="watching=true"
             ng-click="watching = false"
-            ng-src="https://www.youtube.com/embed/{{i.id.videoId}}"
+            ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"
             width="100%"
             frameborder="0" ></iframe>
     <p>{{i.snippet.description}}</p>
