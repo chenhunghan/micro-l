@@ -8,13 +8,16 @@
 <body ng-controller="MainCtrl as main">
 <div ng-repeat="i in items">
     <h1>{{i.snippet.title}}</h1>
-    <img ng-src="{{i.snippet.thumbnails.high.url}}" ng-click="watching = true">
-    <iframe
-            ng-if="watching=true"
-            ng-click="watching = false"
-            ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"
-            width="100%"
-            frameborder="0" ></iframe>
+    <img ng-src="{{i.snippet.thumbnails.high.url}}" ng-click="watching = true" ng-hide="watching">
+    <div ng-if="watching">
+        <iframe
+                ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"
+                width="50%"
+                height="600"
+                frameborder="0" ></iframe>
+
+    </div>
+
     <p>{{i.snippet.description}}</p>
 </div>
 <pre id="response"></pre>
