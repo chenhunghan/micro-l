@@ -1,26 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">-->
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <meta name="viewport" content="initial-scale=1" />
+    <!--<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 </head>
 <body ng-controller="MainCtrl as main">
-<div ng-repeat="i in items">
-    <h1>{{i.snippet.title}}</h1>
-    <img ng-src="{{i.snippet.thumbnails.high.url}}" ng-click="watching = true" ng-hide="watching">
-    <div ng-if="watching">
-        <iframe
-                ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"
-                width="50%"
-                height="600"
-                frameborder="0" ></iframe>
-
-    </div>
-
-    <p>{{i.snippet.description}}</p>
+<div class="intro">
+    <h1></h1>
 </div>
-<pre id="response"></pre>
+<div style="height: 500px; width:500px">
+    <carousel interval="5000" no-wrap="false">
+        <slide ng-repeat="i in items">
+            <img ng-src="{{i.snippet.thumbnails.high.url}}" style="margin:auto; width:500px; height:400px;" ng-click="watching = true" ng-hide="watching">
+            <div ng-if="watching">
+                <iframe
+                        ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"
+                        frameborder="0" ></iframe>
+
+            </div>
+            <div class="carousel-caption">
+                <h4>{{i.snippet.title}}</h4>
+                <p>{{i.snippet.description}}</p>
+            </div>
+        </slide>
+    </carousel>
+</div>
+
+<!--<div ng-repeat="i in items">-->
+    <!--<h1>{{i.snippet.title}}</h1>-->
+    <!--<img ng-src="{{i.snippet.thumbnails.high.url}}" ng-click="watching = true" ng-hide="watching">-->
+    <!--<div ng-if="watching">-->
+        <!--<iframe-->
+                <!--ng-src="{{ i.id.videoId | youtubeEmbedUrl }}"-->
+                <!--width="50%"-->
+                <!--height="600"-->
+                <!--frameborder="0" ></iframe>-->
+
+    <!--</div>-->
+    <!--<p>{{i.snippet.description}}</p>-->
+<!--</div>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js" type="text/javascript"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.js" type="text/javascript"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js"></script>

@@ -298,6 +298,7 @@ function onClientLoad() {
                             }
                         }
                     ]
+
                 console.log(response)
                 if (response.items) {
                     $scope.items = response.items
