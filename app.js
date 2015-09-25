@@ -3,7 +3,7 @@ function onClientLoad() {
     gapi.client.load('youtube', 'v3', function() {
         gapi.client.setApiKey('AIzaSyDG4OKT4eGlYFtpCmfKM8jGs42ge7qM--s');
         var request = gapi.client.youtube.search.list({
-            q: keyword + '|step-by-step|tutorial|beginners|how -music -song',
+            q: keyword + '|javascript|step-by-step|tutorial|beginners|how -music -song',
             part: 'snippet',
             type: 'video',
             safeSearch: 'moderate',
